@@ -20,6 +20,7 @@ body {
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 5vh;
@@ -65,3 +66,30 @@ body {
 }
 
 /* weather data container styling */
+.weather-container {
+  color: rgba(255, 255, 255, 0.864);
+  margin-top: 3rem;
+  width: clamp(320px, 33vw, 90vw);
+  padding: 3%;
+  background-color: rgba(0, 0, 0, 0.729);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.location {
+  font-size: 2rem;
+}
+
+.temp-data-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.temp-data-row .weather-icon img {
+  height: 100px;
+}
