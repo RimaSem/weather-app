@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  background: url(./img/aral-tasher-unsplash.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+/* search bar styling */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-bar form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+
+.search-bar input {
+  font-size: 1rem;
+  padding-left: 1rem;
+  width: clamp(280px, 20vw, 70vw);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.search-bar button {
+  border: none;
+  width: 40px;
+  background-image: url(./img/magnify.svg);
+  background-size: 28px;
+  background-position: 40%;
+  background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-bar button:hover {
+  cursor: pointer;
+}
+
+/* weather data container styling */
