@@ -19,6 +19,7 @@ body {
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,8 +66,20 @@ body {
   cursor: pointer;
 }
 
+/* error message */
+.error-message {
+  position: absolute;
+  top: 45px;
+  color: rgb(255, 139, 139);
+  border: 0.5px solid rgb(255, 139, 139);
+  background-color: rgba(0, 0, 0, 0.729);
+  padding: 10px;
+  display: none;
+}
+
 /* upper weather data container */
 .weather-container {
+  position: relative;
   color: rgba(255, 255, 255, 0.864);
   margin-top: 3rem;
   width: clamp(330px, 35vw, 95vw);
@@ -79,8 +92,30 @@ body {
   align-items: center;
 }
 
+.temp-type-btn {
+  position: absolute;
+  text-align: center;
+  padding-top: 6px;
+  padding-right: 6px;
+  width: 32px;
+  height: 32px;
+  color: black;
+  background-color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  top: 1.5%;
+  right: 1%;
+}
+
+.temp-type-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .location {
   font-size: 2rem;
+  text-align: center;
 }
 
 .temp-data-row {

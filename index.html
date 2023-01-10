@@ -22,7 +22,10 @@
         </form>
       </div>
 
+      <div class="error-message">City not found</div>
+
       <div class="weather-container">
+        <div class="temp-type-btn">°F</div>
         <div class="location">London, GB</div>
         <div class="temp-data-row">
           <span class="weather-icon"
@@ -30,7 +33,7 @@
           /></span>
           <span class="temperature">9</span>
           <span class="degree">º</span>
-          <span class="unit">C</span>
+          <span class="temperature-type">C</span>
         </div>
         <span class="weather-description">Broken clouds</span>
 
@@ -40,7 +43,9 @@
               <img src="./img/temperature.svg" />
               <div class="mini-container">
                 <div class="label">Feels Like</div>
-                <div class="data">18°C</div>
+                <div class="data">
+                  <span class="temp">18</span>°<span class="type">C</span>
+                </div>
               </div>
             </div>
             <div class="humidity item">
