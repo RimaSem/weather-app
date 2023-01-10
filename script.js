@@ -28,13 +28,15 @@ searchForm.addEventListener("submit", (e) => {
 // fetch and display weather data
 async function getWeather(city) {
   const cityResponse = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`,
+    { mode: "cors" }
   );
   const cityData = await cityResponse.json();
   cityName.textContent = `${cityData[0].name}, ${cityData[0].country}`;
 
   const weatherResponse = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${cityData[0].lat}&lon=${cityData[0].lon}&appid=${APIkey}&units=metric`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${cityData[0].lat}&lon=${cityData[0].lon}&appid=${APIkey}&units=metric`,
+    { mode: "cors" }
   );
   const weatherData = await weatherResponse.json();
 
