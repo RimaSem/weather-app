@@ -65,12 +65,12 @@ body {
   cursor: pointer;
 }
 
-/* weather data container styling */
+/* upper weather data container */
 .weather-container {
   color: rgba(255, 255, 255, 0.864);
   margin-top: 3rem;
-  width: clamp(320px, 33vw, 90vw);
-  padding: 3%;
+  width: clamp(330px, 35vw, 95vw);
+  padding: 5%;
   background-color: rgba(0, 0, 0, 0.729);
   border-radius: 20px;
   display: flex;
@@ -92,4 +92,60 @@ body {
 
 .temp-data-row .weather-icon img {
   height: 100px;
+}
+
+/* lower weather data container */
+.weather-details-container {
+  margin-top: 10%;
+  padding-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.864);
+}
+
+.weather-details-container img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.column-1,
+.column-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mini-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.humidity,
+.wind {
+  margin-top: 15%;
+}
+
+.item {
+  display: flex;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.data {
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 330px) {
+  .content {
+    width: 100%;
+  }
+  .weather-details-container {
+    width: 80%;
+  }
 }
