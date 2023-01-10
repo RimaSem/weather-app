@@ -16,15 +16,16 @@ const humidity = document.querySelector(".humidity .data");
 const precipitation = document.querySelector(".precipitation .data");
 const windSpeed = document.querySelector(".wind .data");
 
+// search weather by city
 searchForm.addEventListener("submit", (e) => {
   errorDisplay.style.display = "none";
   e.preventDefault();
   getWeather(userInput.value).catch((err) => {
     errorDisplay.style.display = "block";
-    console.log(err.message);
   });
 });
 
+// fetch and display weather data
 async function getWeather(city) {
   const cityResponse = await fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
@@ -36,7 +37,7 @@ async function getWeather(city) {
     `https://api.openweathermap.org/data/2.5/forecast?lat=${cityData[0].lat}&lon=${cityData[0].lon}&appid=${APIkey}&units=metric`
   );
   const weatherData = await weatherResponse.json();
-  console.log(weatherData);
+
   weatherIcon.src = `https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`;
   temperature.textContent = Math.round(+weatherData.list[0].main.temp);
   temperatureType.textContent = "C";
@@ -47,19 +48,19 @@ async function getWeather(city) {
   precipitation.textContent = `${+weatherData.list[0].pop * 100}%`;
   windSpeed.textContent = `${Math.round(weatherData.list[0].wind.speed)} m/s`;
 
-  tempConversionBtn.textContent = "°F";
+  tempConversionBtn.textContent = "F";
 }
 
 // temperature conversion
 tempConversionBtn.addEventListener("click", (e) => {
-  if (tempConversionBtn.textContent === "°F") {
+  if (tempConversionBtn.textContent === "F") {
     temperature.textContent = Math.round(convertToF(+temperature.textContent));
     temperatureType.textContent = "F";
     feelsLikeTemp.textContent = Math.round(
       convertToF(+feelsLikeTemp.textContent)
     );
     feelsLikeTempType.textContent = "F";
-    tempConversionBtn.textContent = "°C";
+    tempConversionBtn.textContent = "C";
   } else {
     temperature.textContent = Math.round(convertToC(+temperature.textContent));
     temperatureType.textContent = "C";
@@ -67,7 +68,7 @@ tempConversionBtn.addEventListener("click", (e) => {
       convertToC(+feelsLikeTemp.textContent)
     );
     feelsLikeTempType.textContent = "C";
-    tempConversionBtn.textContent = "°F";
+    tempConversionBtn.textContent = "F";
   }
 });
 
@@ -78,3 +79,6 @@ function convertToF(celsius) {
 function convertToC(fahrenheit) {
   return (fahrenheit - 32) * (5 / 9);
 }
+
+// display Klaipėda weather on page load
+getWeather("klaipeda");

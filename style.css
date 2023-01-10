@@ -93,14 +93,16 @@ body {
 }
 
 .temp-type-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   text-align: center;
-  padding-top: 5px;
-  padding-right: 6px;
   width: 32px;
   height: 32px;
-  color: black;
-  background-color: white;
+  color: rgba(0, 0, 0, 0.729);
+  background-color: rgba(255, 255, 255, 0.864);
+  border: 0.5px solid grey;
   font-weight: 500;
   font-size: 1.2rem;
   border-radius: 15px;
