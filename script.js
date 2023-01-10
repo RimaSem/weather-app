@@ -13,7 +13,7 @@ const weatherDescription = document.querySelector(".weather-description");
 const feelsLikeTemp = document.querySelector(".temp");
 const feelsLikeTempType = document.querySelector(".type");
 const humidity = document.querySelector(".humidity .data");
-const rainChance = document.querySelector(".rain-chance .data");
+const precipitation = document.querySelector(".precipitation .data");
 const windSpeed = document.querySelector(".wind .data");
 
 searchForm.addEventListener("submit", (e) => {
@@ -37,14 +37,14 @@ async function getWeather(city) {
   );
   const weatherData = await weatherResponse.json();
   console.log(weatherData);
-  //   weatherIcon.src = weatherData.weather[0].icon;
+  weatherIcon.src = `https://openweathermap.org/img/wn/${weatherData.list[0].weather[0].icon}@4x.png`;
   temperature.textContent = Math.round(+weatherData.list[0].main.temp);
   temperatureType.textContent = "C";
   weatherDescription.textContent = weatherData.list[0].weather[0].main;
   feelsLikeTemp.textContent = Math.round(+weatherData.list[0].main.feels_like);
   feelsLikeTempType.textContent = "C";
   humidity.textContent = `${weatherData.list[0].main.humidity}%`;
-  rainChance.textContent = `${+weatherData.list[0].pop * 100}%`;
+  precipitation.textContent = `${+weatherData.list[0].pop * 100}%`;
   windSpeed.textContent = `${Math.round(weatherData.list[0].wind.speed)} m/s`;
 
   tempConversionBtn.textContent = "°F";
